@@ -44,3 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
+
+const contactoForm = document.getElementById('contacto-form');
+
+contactoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const asunto = document.getElementById("asunto").value;
+  const mensaje = document.getElementById("mensaje").value;
+
+  alert('Gracias por contactarnos - Nombre: ' + nombre + '- Email: ' + asunto + '- Asunto: ' + email + '- Mensaje: ' + mensaje);
+
+  contactoForm.reset();
+});

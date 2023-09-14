@@ -10,8 +10,8 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    background-color: #171f25;
-    color: #fff;
+    background-color: #171f25 !important;
+    color: #fff !important;
   }
   
   
@@ -78,8 +78,7 @@
   }
   
   /* #endregion */
-  
-  
+    
   /* #region SECCIONES EN GENERAL */
   
   section {
@@ -99,12 +98,11 @@
     font-size: 2rem;
     color: #ffffff;
   
-    border-bottom: 5px solid #c90a02;
+    border-bottom: 5px solid #c90a02 !important;
     margin-bottom: 2rem;
   }
   
   /* #endregion */
-  
   
   /* #region HOME */
   
@@ -137,19 +135,18 @@
   }
   
   /* #endregion */
-  
-  
+   
   /* #region RANKING */
 
 .container {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 500px;
-  gap: 10px;
+  height: 30rem;
+  gap: 0.5rem;
 
   > div {
-    flex: 0 0 160px;
+    flex: 0 0 10rem;
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
     cursor: pointer;
@@ -182,7 +179,7 @@
       color: #fff;
       display: flex;
       align-items: center;
-      padding: 15px;
+      padding: 1rem;
       opacity: 0;
       flex-direction: column;
       height: 100%;
@@ -224,23 +221,22 @@
   /* #region ARTISTAS */
   
   main#carousel {
-    height: 600px;
+    height: 30rem;
     margin: 0;
     display: grid;
-    grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+    grid-template-rows: 20rem 10rem;
+    grid-template-columns: 1fr 2rem 2rem 2rem 2rem 2rem 1fr;
     align-items: center;
     justify-items: center;
     grid-row: 1 / 2;
     grid-column: 1 / 8;
     width: 100%;
-    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     transform-style: preserve-3d;
-    perspective: 600px;
+    perspective: 35rem;
     --items: 5;
     --middle: 3;
     --position: 1;
@@ -249,14 +245,14 @@
   
   div.item {
     position: absolute;
-    width: 400px;
-    height: 500px;
+    width: 25rem;
+    height: 30rem;
     background-color: rgba(255, 255, 255, 0);
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.25s linear;
     transform: rotateY(calc(-10deg * var(--r)))
-      translateX(calc(-300px * var(--r)));
+      translateX(calc(-18rem * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
   }
   
@@ -341,34 +337,43 @@
     right: 0;
     bottom: 0;
     left: 0;
+    transition: 0.4s ease-out;
     box-shadow: 0px 0px 60px 40px rgba(0, 0, 0, 0.412) inset;
   }
-  
-  /*.artista-nombre {
-    font-size: 1.5rem;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    opacity: 0;
-    flex-direction: column;
+
+  .artista-info:before {
+    content: "";
+    position: absolute;
+    padding: 1rem;
+    display: block;
+    width: 100%;
     height: 100%;
-    justify-content: flex-end;
-    background: #090f13;
-    background: linear-gradient(
-      0deg,
-      rgba(9, 15, 19, 0.7) 0%,
-      rgba(9, 15, 19, 0) 100%
-    );
-    transform: translatey(100%);
-    transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
-    visibility: hidden;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 0;
   }
-  .artista-nombre:hover {
-    flex: 0 0 350px;
-    box-shadow: 1px 3px 15px #c90a02;
-    transform: translateY(-0.5rem);
-  }*/
+
+  .artista-info:hover:before {
+    opacity: 1;
+  }
+
+  .artista-info .artista-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .artista-info:hover .artista-overlay  {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 
   /* #endregion */
 
@@ -413,40 +418,41 @@
   /* #endregion */
 
   /* #region CONTACTO */
-  .contact .info {
+  .contact .info{
     width: 100%;
-    background: #090f13;
-    display: inline-block;
+    background: #171f25;
   }
   .contact .info i {
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #752e2b;
     float: left;
-    width: 44px;
-    height: 44px;
+    width: 3rem;
+    height: 3rem;
     background: hsl(40, 50%, 83%);
-    display: flex;
     flex: 1;
+    padding: 0.9rem;
+    margin-top: 0.9rem;
+    margin-left: 0.3rem;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
+    border-radius: 50%;
     transition: all 0.3s ease-in-out;
   }
   .contact .info h4 {
-    padding: 0 0 0 60px;
-    font-size: 22px;
+    padding: 1rem 0 0 4rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 5px;
-    color: #45505b;
+    margin-bottom: 0.3rem;
+    color: #fff;
   }
   .contact .info p {
     padding: 0 0 0 60px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #45505b;
+    color: #fff;
   }
   .contact .info .email, .contact .info .phone {
-    margin-top: 40px;
+    margin-top: 1.5rem;
   }
   .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
     background: #752e2b;
@@ -454,7 +460,9 @@
   }
   .contact .php-email-form {
     width: 100%;
-    background: #090f13;
+    flex: 1;
+    background: #171f25;
+    padding-bottom: 5%;
   }
   .contact .php-email-form .form-group {
     padding-bottom: 8px;
@@ -505,7 +513,7 @@
     height: 44px;
   }
   .contact .php-email-form textarea {
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
   .contact .php-email-form button[type=submit] {
     background: #752e2b;
@@ -536,45 +544,43 @@
   }
   /* #endregion */
 
-
-
   /* #region FOOTER */
   #footer {
-    background: #f7f8f9;
-    color: #45505b;
-    font-size: 14px;
+    background: hsl(52, 50%, 90%);
+    color: #171f25;
+    font-size: 0.8rem;
     text-align: center;
-    padding: 30px 0;
+    padding: 0.8rem 0;
   }
   #footer h3 {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 700;
     position: relative;
     font-family: "Poppins", sans-serif;
     padding: 0;
-    margin: 0 0 15px 0;
+    margin: 0 0 0.5rem 0;
   }
   #footer p {
     font-size: 15;
     font-style: italic;
     padding: 0;
-    margin: 0 0 40px 0;
+    margin: 0 0 2rem 0;
   }
   #footer .social-links {
-    margin: 0 0 40px 0;
+    margin: 0 0 2rem 0;
   }
   #footer .social-links a {
-    font-size: 18px;
+    font-size: 1rem;
     display: inline-block;
     background:  #752e2b;
     color: #f2eab7;
     line-height: 1;
-    padding: 8px 0;
-    margin-right: 4px;
+    padding: 0.5rem 0;
+    margin-right: 0.2rem;
     border-radius: 50%;
     text-align: center;
-    width: 36px;
-    height: 36px;
+    width: 2rem;
+    height: 2rem;
     transition: 0.3s;
   }
   #footer .social-links a:hover {
@@ -583,14 +589,13 @@
     text-decoration: none;
   }
   #footer .copyright {
-    margin: 0 0 5px 0;
+    margin: 0 0 0.4rem 0;
   }
   #footer .credits {
-    font-size: 13px;
+    font-size: 0.8rem;
   }
   
   /* #endregion */
-  
   
   /* #region BOTON IR ARRIBA */
   
@@ -627,3 +632,84 @@
   
   /* #endregion */
   
+  @media screen and (max-width: 1440px) {
+
+    body {
+      font-size: 14px;
+    }
+  
+    section {
+      padding: 40px 70px;
+    }
+  
+    #ranking {
+      width: 100%;
+      padding: 15px 15px;
+      gap: 35px;
+    }
+  
+    main#carousel {
+      padding: 1.5rem;
+      margin: 1.5rem;
+    }
+  
+    .galeria-img {
+      max-width: 350px;
+      padding: 1rem;
+      margin: 1rem;
+    }
+  
+  }
+  
+  @media screen and (max-width: 1024px) {
+  
+    body {
+      font-size: 13px;
+    }
+  
+    section {
+      padding: 40px 50px;
+    }
+  
+    section > h1 {
+      font-size: 1.5rem;
+    }
+  
+    nav {
+      font-size: 1.125rem;
+    }
+  
+    #ranking {
+      width:100%;
+      gap: 20px;
+    }
+  
+    main#carousel {
+      padding: 0.9rem;
+      margin: 0.9rem;
+    }
+  
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 12px;
+    }
+  
+    section {
+      padding: 40px 45px;
+    }
+  
+    main#carousel {
+      padding: 40px;
+      margin: 20px 0;
+    }
+  
+  
+    button.btn,
+    a.button-link {
+      font-size: 1rem;
+    }
+  
+  }
